@@ -40,3 +40,11 @@ get '/article/:id' do
     'param is not integer'
   end
 end
+
+get '/show_img' do
+  imgs = Dir.glob('./public/img/*.jpg')
+  random = rand(imgs.length)
+  path = imgs[random]
+  @url = path[8, path.length]
+  erb :show_img
+end
